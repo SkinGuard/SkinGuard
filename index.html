@@ -1,53 +1,1063 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GlowWell</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greetmed - Framework Only</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0056b3',
+                        secondary: '#6c757d',
+                        light: '#f8f9fa',
+                        dark: '#343a40',
+                        success: '#28a745',
+                        info: '#17a2b8',
+                        warning: '#ffc107',
+                        danger: '#dc3545',
+                        white: '#ffffff',
+                        muted: '#6c757d'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'custom': '0 4px 6px rgba(0, 0, 0, 0.1)',
+                        'hover': '0 10px 15px rgba(0, 0, 0, 0.1)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            }
+            .transition-all-300 {
+                transition: all 300ms ease-in-out;
+            }
+            .bg-gradient-primary {
+                background: linear-gradient(135deg, #0056b3 0%, #007bff 100%);
+            }
+            .bg-gradient-light {
+                background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            }
+        }
+        
+        /* Custom CSS extracted from the original website */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            color: #343a40;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        
+        @media (min-width: 576px) {
+            .container {
+                max-width: 540px;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .container {
+                max-width: 720px;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .container {
+                max-width: 960px;
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1140px;
+            }
+        }
+        
+        .section {
+            padding: 6rem 0;
+            position: relative;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 4px;
+            background-color: #0056b3;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+        
+        .btn {
+            display: inline-block;
+            font-weight: 400;
+            color: #212529;
+            text-align: center;
+            vertical-align: middle;
+            user-select: none;
+            background-color: transparent;
+            border: 1px solid transparent;
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            border-radius: 0.25rem;
+            transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+        
+        .btn-primary {
+            color: #fff;
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        
+        .btn-primary:hover {
+            color: #fff;
+            background-color: #004494;
+            border-color: #004494;
+        }
+        
+        .btn-outline-primary {
+            color: #0056b3;
+            border-color: #0056b3;
+        }
+        
+        .btn-outline-primary:hover {
+            color: #fff;
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        
+        .navbar {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 1rem;
+        }
+        
+        .navbar-brand {
+            display: inline-block;
+            padding-top: 0.3125rem;
+            padding-bottom: 0.3125rem;
+            margin-right: 1rem;
+            font-size: 1.25rem;
+            line-height: inherit;
+            white-space: nowrap;
+        }
+        
+        .navbar-nav {
+            display: flex;
+            flex-direction: column;
+            padding-left: 0;
+            margin-bottom: 0;
+            list-style: none;
+        }
+        
+        .nav-link {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: #0056b3;
+            text-decoration: none;
+            transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+        }
+        
+        .nav-link:hover {
+            color: #004494;
+            text-decoration: none;
+        }
+        
+        .footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 4rem 0;
+        }
+        
+        .footer-title {
+            position: relative;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background-color: #0056b3;
+        }
+        
+        .footer-link {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: color 0.15s ease-in-out;
+        }
+        
+        .footer-link:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            margin-right: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: #0056b3;
+            color: #fff;
+            transform: translateY(-3px);
+        }
+        
+        /* Placeholder styles for empty content areas */
+        .placeholder {
+            background-color: #f8f9fa;
+            border-radius: 0.25rem;
+            margin-bottom: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 100%);
+            animation: shimmer 1.5s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+        
+        .placeholder-sm {
+            height: 1rem;
+        }
+        
+        .placeholder-md {
+            height: 1.5rem;
+        }
+        
+        .placeholder-lg {
+            height: 2rem;
+        }
+        
+        .placeholder-xl {
+            height: 3rem;
+        }
+        
+        .placeholder-2xl {
+            height: 4rem;
+        }
+        
+        .placeholder-img {
+            aspect-ratio: 16/9;
+            background-color: #e9ecef;
+        }
+        
+        .placeholder-card {
+            padding: 1.25rem;
+            background-color: #fff;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
-<body class="font-sans bg-slate-50">
-  <!-- Navbar -->
-  <nav class="flex justify-between items-center bg-white px-10 py-4 shadow-md sticky top-0 z-10">
-    <div class="text-2xl font-bold text-sky-800">SkinGuard</div>
-    <ul class="flex gap-8 text-gray-700 font-medium">
-      <li><a class="hover:text-sky-700" href="#home">Home</a></li>
-      <li><a class="hover:text-sky-700" href="#team">Our Team</a></li>
-      <li><a class="hover:text-sky-700" href="#innovation">Innovation</a></li>
-      <li><a class="hover:text-sky-700" href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+<body>
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container">
+            <nav class="navbar">
+                <a class="navbar-brand" href="#">
+                    <div class="placeholder placeholder-md w-32"></div>
+                </a>
+                
+                <div class="ml-auto">
+                    <ul class="navbar-nav d-flex flex-row">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <div class="placeholder placeholder-sm w-16"></div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <div class="placeholder placeholder-sm w-16"></div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <div class="placeholder placeholder-sm w-16"></div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <div class="placeholder placeholder-sm w-16"></div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <div class="placeholder placeholder-sm w-16"></div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-  <!-- Landing Section -->
-  <section id="home" class="h-[90vh] flex items-center justify-center text-center text-white bg-cover bg-center" style="background-image:url('https://via.placeholder.com/1600x900');">
-    <div>
-      <h1 class="text-5xl font-bold mb-4">Your Skin. Your Science.</h1>
-      <p class="text-lg max-w-xl mx-auto mb-6">Personalized skincare powered by advanced skin biology and data science.</p>
-      <button class="px-6 py-3 bg-sky-700 hover:bg-sky-900 rounded-full text-white font-medium transition">Explore Solutions</button>
-    </div>
-  </section>
+    <!-- Hero Section -->
+    <section class="bg-gradient-primary text-white py-20">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="section-title text-white">
+                        <div class="placeholder placeholder-xl mb-4"></div>
+                        <div class="placeholder placeholder-lg mb-2"></div>
+                        <div class="placeholder placeholder-md mb-6"></div>
+                    </div>
+                    <div class="placeholder placeholder-lg mb-6"></div>
+                    <div class="placeholder placeholder-lg mb-6"></div>
+                    <button class="btn btn-white text-primary font-weight-bold px-6 py-3 rounded-0">
+                        <div class="placeholder placeholder-sm w-24"></div>
+                    </button>
+                </div>
+                <div class="col-lg-6 mt-10 mt-lg-0">
+                    <div class="placeholder placeholder-img rounded-lg"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Navigation Section -->
-  <section id="navigation" class="py-20 text-center">
-    <h2 class="text-3xl font-bold text-sky-900 mb-6">Navigate</h2>
-    <div class="flex justify-center gap-10 text-lg">
-      <a class="hover:text-sky-700" href="#home">Home</a>
-      <a class="hover:text-sky-700" href="#team">Our Team</a>
-      <a class="hover:text-sky-700" href="#innovation">Innovation</a>
-      <a class="hover:text-sky-700" href="#contact">Contact</a>
-    </div>
-  </section>
+    <!-- Features Section -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="text-center mb-12">
+                <div class="section-title d-inline-block">
+                    <div class="placeholder placeholder-xl mb-4"></div>
+                </div>
+                <div class="placeholder placeholder-md mx-auto w-2/3"></div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4 mb-8">
+                    <div class="card h-100 p-6">
+                        <div class="bg-primary bg-opacity-10 w-16 h-16 rounded-full flex items-center mb-6">
+                            <div class="placeholder placeholder-sm w-8 h-8"></div>
+                        </div>
+                        <div class="placeholder placeholder-lg mb-4"></div>
+                        <div class="placeholder placeholder-md mb-2"></div>
+                        <div class="placeholder placeholder-md mb-2"></div>
+                        <div class="placeholder placeholder-md"></div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-8">
+                    <div class="card h-100 p-6">
+                        <div class="bg-primary bg-opacity-10 w-16 h-16 rounded-full-center mb-6">
+                            <div class="placeholder placeholder-sm w-8 h-8"></div>
+                        </div>
+                        <div class="placeholder placeholder-lg mb-4"></div>
+                        <div class="placeholder placeholder-md mb-2"></div>
+                        <div class="placeholder placeholder-md mb-2"></div>
+                        <div class="placeholder placeholder-md"></div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-8">
+                    <div class="card h-100 p-6">
+                        <div class="bg-primary bg-opacity-10 w-16 h-16 rounded-full flex-center mb-6">
+                            <div class="placeholder placeholder-sm w-8 h-8"></div>
+                        </div>
+                        <div class="placeholder placeholder-lg mb-4"></div>
+                        <div class="placeholder placeholder-md mb-2"></div>
+                        <div class="placeholder placeholder-md mb-2"></div>
+                        <div class="placeholder placeholder-md"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Team Section -->
-  <section id="team" class="py-20 text-center bg-slate-100">
-    <h2 class="text-3xl font-bold text-sky-900 mb-6">Our Team</h2>
-    <p class="max-w-2xl mx-auto text-gray-600">Led by dermatology specialists and AI researchers, our mission is to redefine skincare by blending biological expertise with cutting-edge machine learning.</p>
-  </section>
+    <!-- About Section -->
+    <section class="section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-10 mb-lg-0">
+                    <div class="placeholder placeholder-img rounded-lg"></div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="section-title">
+                        <div class="placeholder placeholder-xl mb-4"></div>
+                    </div>
+                    <div class="placeholder placeholder-md mb-4"></div>
+                    <div class="placeholder placeholder-md mb-4"></div>
+                    <div class="placeholder placeholder-md mb-6"></div>
+                    
+                    <div class="row mt-8">
+                        <div class="col-md-6 mb-4">
+                            <div class="d-flex align-items-center">
+                                <div class="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center mr-3">
+                                    <div class="placeholder placeholder-xs w-4 h-4"></div>
+                                </div>
+                                <div class="placeholder placeholder-sm w-24"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="d-flex align-items-center">
+                                <div class="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center mr-3">
+                                    <div class="placeholder placeholder-xs w-4 h-4"></div>
+                                </div>
+                                <div class="placeholder placeholder-sm w-24"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="d-flex align-items-center">
+                                <div class="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center mr-3">
+                                    <div class="placeholder placeholder-xs w-4 h-4"></div>
+                                </div>
+                                <div class="placeholder placeholder-sm w-24"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="d-flex align-items-center">
+                                <div class="bg-primary text-white rounded-full w-10 h-10 flex items-center-center justify-center mr-3">
+                                    <div class="placeholder placeholder-xs w-4 h-4"></div>
+                                </div>
+                                <div class="placeholder placeholder-sm w-24"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Innovation Section -->
-  <section id="innovation" class="py-20 text-center">
-    <h2 class="text-3xl font-bold text-sky-900 mb-6">Innovation</h2>
-    <p class="max-w-2xl mx-auto text-gray-600">Our platform analyzes your skin type, lifestyle, and environmental data to deliver precise recommendations. Science-driven, user-focused, and constantly learning to improve your results.</p>
-  </section>
+    <!-- Team Section -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="text-center mb-12">
+                <div class="section-title d-inline-block">
+                    <div class="placeholder placeholder-xl mb-4"></div>
+                </div>
+                <div class="placeholder placeholder-md mx-auto w-2/3"></div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-8">
+                    <div class="card h-100">
+                        <div class="placeholder placeholder-img"></div>
+                        <div class="p-6">
+                            <div class="placeholder placeholder-lg mb-3"></div>
+                            <div class="placeholder placeholder-md mb-2"></div>
+                            <div class="placeholder placeholder-md mb-4"></div>
+                            <a href="#" class="text-primary font-weight-medium d-flex align-items-center">
+                                <div class="placeholder placeholder-sm w-16"></div>
+                                <div class="ml-2 placeholder placeholder-xs w-4 h-4"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-8">
+                    <div class="card h-100">
+                        <div class="placeholder placeholder-img"></div>
+                        <div class="p-6">
+                            <div class="placeholder placeholder-lg mb-3"></div>
+                            <div class="placeholder placeholder-md mb-2"></div>
+                            <div class="placeholder placeholder-md mb-4"></div>
+                            <a href="#" class="text-primary font-weight-medium d-flex align-items-center">
+                                <div class="placeholder placeholder-sm w-16"></div>
+                                <div class="ml-2 placeholder placeholder-xs w-4 h-4"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-8">
+                    <div class="card h-100">
+                        <div class="placeholder placeholder-img"></div>
+                        <div class="p-6">
+                            <div class="placeholder placeholder-lg mb-3"></div>
+                            <div class="placeholder placeholder-md mb-2"></div>
+                            <div class="placeholder placeholder-md mb-4"></div>
+                            <a href="#" class="text-primary font-weight-medium d-flex align-items-center">
+                                <div class="placeholder placeholder-sm w-16"></div>
+                                <div class="ml-2 placeholder placeholder-xs w-4 h-4"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center mb-12">
+                <div class="section-title d-inline-block">
+                    <div class="placeholder placeholder-xl mb-4"></div>
+                </div>
+                <div class="placeholder placeholder-md mx-auto w-2/3"></div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-8">
+                    <div class="card h-100 text-center">
+                        <div class="placeholder placeholder-img rounded-full w-48 h-48 mx-auto mt-4"></div>
+                        <div class="p-6">
+                            <div class="placeholder placeholder-lg mb-2"></div>
+                            <div class="placeholder placeholder-sm w-24 mx-auto mb-3"></div>
+                            <div class="placeholder placeholder-md mb-4"></div>
+                            <div class="flex justify-content-center">
+                                <a href="#" class="social-icon text-muted hover:text-primary mr-3">
+                                    <div class="placeholder placeholder-xs w-5 h-5"></div>
+                                </a>
+                                <a href="#" class="social-icon text-muted hover:text-primary mr-3">
+                                    <div class="placeholder placeholder-xs w-5 h-5"></div>
+                                </a>
+                                <a href="#" class="social-icon text-muted hover:text-primary">
+                                    <div class="placeholder placeholder-xs w-5 h-5"></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-8">
+                    <div class="card h-100 text-center">
+                        <div class="placeholder placeholder-img rounded-full w-48 h-48 mx-auto mt-4"></div>
+                        <div class="p-6">
+                            <div class="placeholder placeholder-lg mb-2"></div>
+                            <div class="placeholder placeholder-sm w-24 mx-auto mb-3"></div>
+                            <div class="placeholder placeholder-md mb-4"></div>
+                            <div class="d-flex justify-content-center">
+                                <a href="#" class="social-icon text-muted hover:text-primary mr-3">
+                                    <div class="placeholder placeholder-xs w-5 h-5"></div>
+                                </a>
+                                <a href="#" class="social-icon text-muted hover:text-primary mr-3">
+                                    <div class="placeholder placeholder-xs w-5 h-5"></div>
+                                </a>
+                                <a href="#" class="social-icon text-muted hover:text-primary">
+                                    <div class="placeholder placeholder-xs w-5 h-5"></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-8">
+                    <div class="card h-100 text-center">
+                        <div class="placeholder placeholder-img rounded-full w-48 h-48 mx-auto mt-4"></div>
+                        <div class="p-6">
+                            <div class="placeholder placeholder-lg mb-2"></div>
+                            <div class="placeholder placeholder-sm w-24 mx-auto mb-3"></div>
+                            <div class="placeholder placeholder-md mb-4"></div>
+                            <div class="d-flex justify-content-center">
+                                <a href="#" class="social-icon text-muted hover:text-primary mr-3">
+                                    <div class="placeholder placeholder-xs w-5 h-5"></div>
+                                </a>
+                                <a href="#" class="social-icon text-muted hover:text-primary mr-3">
+                                    <div class="placeholder placeholder-xs w-5 h-5"></div>
+                                </a>
+                                <a href="#" class="social-icon text-muted hover hover:text-primary">
+                                    <div class="placeholder placeholder-xs w-5 h-5"></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-8">
+                    <div class="card h-100 text-center">
+                        <div class="placeholder placeholder-img rounded-full w-48 h-48 mx-auto mt-4"></div>
+                        <div class="p-6">
+                            <div class="placeholder placeholder-lg mb-2"></div>
+                            <div class="placeholder placeholder-sm w-24 mx-auto mb-3"></div>
+                            <div class="placeholder placeholder-md mb-4"></div>
+                            <div class="d-flex justify-content-center">
+                                <a href="#" class="social-icon text-muted hover:text-primary mr-3">
+                                    <div class="placeholder placeholder-xs w-5 h-5"></div>
+                                </a>
+                                <a href="#" class="social-icon text-muted hover:text-primary mr-3">
+                                    <div class="placeholder placeholder-xs w-5 h-5"></div>
+                                </a>
+                                <a href="#" class="social-icon text-muted hover:text-primary">
+                                    <div class="placeholder placeholder-xs w-5 h-5"></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="text-center mb-12">
+                <div class="section-title d-inline-block">
+                    <div class="placeholder placeholder-xl mb-4"></div>
+                </div>
+                <div class="placeholder placeholder-md mx-auto w-2/3"></div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-8">
+                    <div class="card h-100 p-6 bg-white">
+                        <div class="flex items-center mb-4">
+                            <div class="text-warning mr-1">
+                                <div class="placeholder placeholder-xs w-4 h-4"></div>
+                            </div>
+                            <div class="text-warning mr-1">
+                                <div class="placeholder placeholder-xs w-4 h-4"></div>
+                            </div>
+                            <div class="text-warning mr-1">
+                                <div class="placeholder placeholder-xs w-4 h-4"></div>
+                            </div>
+                            <div class="text-warning mr-1">
+                                <div class="placeholder placeholder-xs w-4 h-4"></div>
+                            </div>
+                            <div class="text-warning">
+                                <div class="placeholder placeholder-xs w-4 h-4"></div>
+                            </div>
+                        </div>
+                        <div class="placeholder placeholder-md mb-6"></div>
+                        <div class="d-flex align-items-center">
+                            <div class="placeholder placeholder-img rounded-full w-12 h-12 mr-4"></div>
+                            <div>
+                                <div class="placeholder placeholder-sm w-20"></div>
+                                <div class="placeholder placeholder-xs w-16"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-8">
+                    <div class="card h-100 p-6 bg-white">
+                        <div class="flex items-center mb-4">
+                            <div class="text-warning mr-1">
+                                <div class="placeholder placeholder-xs w-4 h-4"></div>
+                            </div>
+                            <div class="text-warning mr-1">
+                                <div class="placeholder placeholder-xs w-4 h-4"></div>
+                            </div>
+                            <div class="text-warning mr-1">
+                                <div class="placeholder placeholder-xs w-4 h-4"></div>
+                            </div>
+                            <div class="text-warning mr-1">
+                                <div class="placeholder placeholder-xs w-4 h-4"></div>
+                            </div>
+                            <div class="text-warning">
+                                <div class="placeholder placeholder-xs w-4 h-4"></div>
+                            </div>
+                        </div>
+                        <div class="placeholder placeholder-md mb-6"></div>
+                        <div class="d-flex align-items-center">
+                            <div class="placeholder placeholder-img rounded-full w-12 h-12 mr-4"></div>
+                            <div>
+                                <div class="placeholder placeholder-sm w-20"></div>
+                                <div class="placeholder placeholder-xs w-16"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-8">
+                    <div class="card h-100 p-6 bg-white">
+                        <div class="flex items-center mb-4">
+                            <div class="text-warning mr-1">
+                                <div class="placeholder placeholder-xs w-4 h-4"></div>
+                            </div>
+                            <div class="text-warning mr-1">
+                                <div class="placeholder placeholder-xs w-4 h-4"></div>
+                            </div>
+                            <div class="text-warning mr-1">
+                                <div class="placeholder placeholder-xs w-4 h-4"></div>
+                            </div>
+                            <div class="text-warning mr-1">
+                                <div class="placeholder placeholder-xs w-4 h-4"></div>
+                            </div>
+                            <div class="text-warning">
+                                <div class="placeholder placeholder-xs w-4 h-4"></div>
+                            </div>
+                        </div>
+                        <div class="placeholder placeholder-md mb-6"></div>
+                        <div class="d-flex align-items-center">
+                            <div class="placeholder placeholder-img rounded-full w-12 h-12 mr-4"></div>
+                            <div>
+                                <div class="placeholder placeholder-sm w-20"></div>
+                                <div class="placeholder placeholder-xs w-16"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-10 mb-lg-0">
+                    <div class="section-title">
+                        <div class="placeholder placeholder-xl mb-4"></div>
+                    </div>
+                    <div class="placeholder placeholder-md mb-6"></div>
+                    
+                    <div class="row mb-6">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start mb-4">
+                                <div class="bg-primary bg-opacity-10 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                    <div class="placeholder placeholder-xs w-6 h-6"></div>
+                                </div>
+                                <div>
+                                    <div class="placeholder placeholder-sm w-24 mb-2"></div>
+                                    <div class="placeholder placeholder-sm w-32"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start mb-4">
+                                <div class="bg-primary bg-opacity-10 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                    <div class="placeholder placeholder-xs w-6 h-6"></div>
+                                </div>
+                                <div>
+                                    <div class="placeholder placeholder-sm w-24 mb-2"></div>
+                                    <div class="placeholder placeholder-sm w-32"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start mb-4">
+                                <div class="bg-primary bg-opacity-10 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                    <div class="placeholder placeholder-xs w-6 h-6"></div>
+                                </div>
+                                <div>
+                                    <div class="placeholder placeholder-sm w-24 mb-2"></div>
+                                    <div class="placeholder placeholder-sm w-32"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start mb-4">
+                                <div class="bg-primary bg-opacity-10 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                    <div class="placeholder placeholder-xs w-6 h-6"></div>
+                                </div>
+                                <div>
+                                    <div class="placeholder placeholder-sm w-24 mb-2"></div>
+                                    <div class="placeholder placeholder-sm w-32"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex">
+                        <a href="#" class="social-icon mr-3">
+                            <div class="placeholder placeholder-xs w-6 h-6"></div>
+                        </a>
+                        <a href="#" class="social-icon mr-3">
+                            <div class="placeholder placeholder-xs w-6 h-6"></div>
+                        </a>
+                        <a href="#" class="social-icon mr-3">
+                            <div class="placeholder placeholder-xs w-6 h-6"></div>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <div class="placeholder placeholder-xs w-6 h-6"></div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="card p-6">
+                        <div class="section-title">
+                            <div class="placeholder placeholder-xl mb-4"></div>
+                        </div>
+                        
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="placeholder placeholder-md w-full h-12"></div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="placeholder placeholder-md w-full h-12"></div>
+                                </div>
+                                <div class="col-md-12 mb-4">
+                                    <div class="placeholder placeholder-md w-full h-12"></div>
+                                </div>
+                                <div class="col-md-12 mb-4">
+                                    <div class="placeholder placeholder-md w-full h-12"></div>
+                                </div>
+                                <div class="col-md-12 mb-4">
+                                    <div class="placeholder placeholder-md w-full h-32"></div>
+                                </div>
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn btn-primary px-6 py-3 w-full">
+                                        <div class="placeholder placeholder-sm w-24 mx-auto"></div>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-8 mb-lg-0">
+                    <div class="footer-title">
+                        <div class="placeholder placeholder-lg"></div>
+                    </div>
+                    <div class="placeholder placeholder-md mb-4"></div>
+                    <div class="placeholder placeholder-md mb-6"></div>
+                    <div class="flex">
+                        <a href="#" class="social-icon mr-3">
+                            <div class="placeholder placeholder-xs w-6 h-6"></div>
+                        </a>
+                        <a href="#" class="social-icon mr-3">
+                            <div class="placeholder placeholder-xs w-6 h-6"></div>
+                        </a>
+                        <a href="#" class="social-icon mr-3">
+                            <div class="placeholder placeholder-xs w-6 h-6"></div>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <div class="placeholder placeholder-xs w-6 h-6"></div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-8 mb-lg-0">
+                    <div class="footer-title">
+                        <div class="placeholder placeholder-lg"></div>
+                    </div>
+                    <ul class="list-unstyled">
+                        <li class="mb-3">
+                            <a href="#" class="footer-link">
+                                <div class="placeholder placeholder-sm w-24"></div>
+                            </a>
+                        </li>
+                        <li class="mb-3">
+                            <a href="#" class="footer-link">
+                                <div class="placeholder placeholder-sm w-24"></div>
+                            </a>
+                        </li>
+                        <li class="mb-3">
+                            <a href="#" class="footer-link">
+                                <div class="placeholder placeholder-sm w-24"></div>
+                            </a>
+                        </li>
+                        <li class="mb-3">
+                            <a href="#" class="footer-link">
+                                <div class="placeholder placeholder-sm w-24"></div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer-link">
+                                <div class="placeholder placeholder-sm w-24"></div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-8 mb-lg-0">
+                    <div class="footer-title">
+                        <div class="placeholder placeholder-lg"></div>
+                    </div>
+                    <ul class="list-unstyled">
+                        <li class="mb-3">
+                            <a href="#" class="footer-link">
+                                <div class="placeholder placeholder-sm w-24"></div>
+                            </a>
+                        </li>
+                        <li class="mb-3">
+                            <a href="#" class="footer-link">
+                                <div class="placeholder placeholder-sm w-24"></div>
+                            </a>
+                        </li>
+                        <li class="mb-3">
+                            <a href="#" class="footer-link">
+                                <div class="placeholder placeholder-sm w-24"></div>
+                            </a>
+                        </li>
+                        <li class="mb-3">
+                            <a href="#" class="footer-link">
+                                <div class="placeholder placeholder-sm w-24"></div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer-link">
+                                <div class="placeholder placeholder-sm w-24"></div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-title">
+                        <div class="placeholder placeholder-lg"></div>
+                    </div>
+                    <div class="placeholder placeholder-md mb-4"></div>
+                    <div class="mb-4">
+                        <div class="placeholder placeholder-md w-full h-12"></div>
+                    </div>
+                    <button class="btn btn-primary w-full">
+                        <div class="placeholder placeholder-sm w-24 mx-auto"></div>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="border-top border-gray-700 mt-8 pt-8">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="placeholder placeholder-sm w-48"></div>
+                    </div>
+                    <div class="col-md-6 text-md-right">
+                        <div class="placeholder placeholder-sm w-64 ml-auto"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize animations with GSAP
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate sections on scroll
+            const sections = document.querySelectorAll('.section');
+            
+            const animateOnScroll = () => {
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (sectionTop < windowHeight * 0.85) {
+                        gsap.to(section, {
+                            opacity: 1,
+                            y: 0,
+                            duration: 1,
+                            ease: 'power2.out'
+                        });
+                    }
+                });
+            };
+            
+            // Initial setup
+            sections.forEach(section => {
+                gsap.set(section, {
+                    opacity: 0,
+                    y: 50
+                });
+            });
+            
+            // Animate once on load
+            setTimeout(animateOnScroll, 300);
+            
+            // Animate on scroll
+            window.addEventListener('scroll', animateOnScroll);
+            
+            // Navbar scroll effect
+            const navbar = document.querySelector('header');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('shadow');
+                } else {
+                    navbar.classList.remove('shadow');
+                }
+            });
+            
+            // Card hover effect
+            const cards = document.querySelectorAll('.card');
+            
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    gsap.to(card, {
+                        y: -5,
+                        boxShadow: '0 10px 15px rgba(0, 0, 0, 0.1)',
+                        duration: 0.3
+                    });
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    gsap.to(card, {
+                        y: 0,
+                        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                        duration: 0.3
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
