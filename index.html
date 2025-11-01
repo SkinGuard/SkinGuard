@@ -3,129 +3,51 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Skincare Guide</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f7f9fb;
-    }
-
-    /* Navbar */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #ffffff;
-      padding: 15px 40px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-    }
-
-    .navbar .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #2a6f97;
-    }
-
-    .navbar ul {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-      margin: 0;
-      padding: 0;
-    }
-
-    .navbar ul li a {
-      text-decoration: none;
-      color: #3a3a3a;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-
-    .navbar ul li a:hover {
-      color: #2a6f97;
-    }
-
-    /* Hero Section */
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 80vh;
-      text-align: center;
-      padding: 0 20px;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      color: #1b4965;
-      margin-bottom: 15px;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      color: #4f5d75;
-      max-width: 600px;
-      margin-bottom: 25px;
-    }
-
-    .hero button {
-      padding: 12px 25px;
-      font-size: 1rem;
-      background-color: #2a6f97;
-      color: white;
-      border: none;
-      border-radius: 25px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .hero button:hover {
-      background-color: #1b4965;
-    }
-  </style>
+  <title>GlowWell</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <nav class="navbar">
-    <div class="logo">GlowWell</div>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">How It Works</a></li>
-      <li><a href="#contact">Contact</a></li>
+<body class="font-sans bg-slate-50">
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center bg-white px-10 py-4 shadow-md sticky top-0 z-10">
+    <div class="text-2xl font-bold text-sky-800">GlowWell</div>
+    <ul class="flex gap-8 text-gray-700 font-medium">
+      <li><a class="hover:text-sky-700" href="#home">Home</a></li>
+      <li><a class="hover:text-sky-700" href="#team">Our Team</a></li>
+      <li><a class="hover:text-sky-700" href="#innovation">Innovation</a></li>
+      <li><a class="hover:text-sky-700" href="#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <section class="landing" id="home" style="background:url('https://via.placeholder.com/1600x900') center/cover no-repeat; height:90vh; display:flex; align-items:center; justify-content:center; text-align:center; color:white;">
-  <div>
-    <h1 style="font-size:3rem; margin-bottom:10px;">Your Skin. Your Science.</h1>
-    <p style="font-size:1.2rem; max-width:600px; margin:0 auto 20px;">Personalized skincare powered by advanced skin biology and data science.</p>
-    <button style="padding:12px 25px; font-size:1rem; background-color:#2a6f97; color:white; border:none; border-radius:25px; cursor:pointer;">Explore Solutions</button>
-  </div>
-</section>
+  <!-- Landing Section -->
+  <section id="home" class="h-[90vh] flex items-center justify-center text-center text-white bg-cover bg-center" style="background-image:url('https://via.placeholder.com/1600x900');">
+    <div>
+      <h1 class="text-5xl font-bold mb-4">Your Skin. Your Science.</h1>
+      <p class="text-lg max-w-xl mx-auto mb-6">Personalized skincare powered by advanced skin biology and data science.</p>
+      <button class="px-6 py-3 bg-sky-700 hover:bg-sky-900 rounded-full text-white font-medium transition">Explore Solutions</button>
+    </div>
+  </section>
 
-<section id="navigation" style="padding:60px 20px; text-align:center;">
-  <h2 style="color:#1b4965; font-size:2rem; margin-bottom:25px;">Navigate</h2>
-  <div style="display:flex; justify-content:center; gap:40px; font-size:1.1rem;">
-    <a href="#home">Home</a>
-    <a href="#team">Our Team</a>
-    <a href="#innovation">Innovation</a>
-    <a href="#contact">Contact</a>
-  </div>
-</section>
+  <!-- Navigation Section -->
+  <section id="navigation" class="py-20 text-center">
+    <h2 class="text-3xl font-bold text-sky-900 mb-6">Navigate</h2>
+    <div class="flex justify-center gap-10 text-lg">
+      <a class="hover:text-sky-700" href="#home">Home</a>
+      <a class="hover:text-sky-700" href="#team">Our Team</a>
+      <a class="hover:text-sky-700" href="#innovation">Innovation</a>
+      <a class="hover:text-sky-700" href="#contact">Contact</a>
+    </div>
+  </section>
 
-<section id="team" style="padding:60px 20px; text-align:center; background:#eef4f7;">
-  <h2 style="color:#1b4965; font-size:2rem; margin-bottom:25px;">Our Team</h2>
-  <p style="max-width:700px; margin:0 auto; color:#4f5d75;">Led by dermatology specialists and AI researchers, our mission is to redefine skincare by blending biological expertise with cutting-edge machine learning.</p>
-</section>
+  <!-- Team Section -->
+  <section id="team" class="py-20 text-center bg-slate-100">
+    <h2 class="text-3xl font-bold text-sky-900 mb-6">Our Team</h2>
+    <p class="max-w-2xl mx-auto text-gray-600">Led by dermatology specialists and AI researchers, our mission is to redefine skincare by blending biological expertise with cutting-edge machine learning.</p>
+  </section>
 
-<section id="innovation" style="padding:60px 20px; text-align:center;">
-  <h2 style="color:#1b4965; font-size:2rem; margin-bottom:25px;">Innovation</h2>
-  <p style="max-width:700px; margin:0 auto; color:#4f5d75;">Our platform analyzes your skin type, lifestyle, and environmental data to deliver precise recommendations. Science-driven, user-focused, and constantly learning to improve your results.</p>
-</section>
+  <!-- Innovation Section -->
+  <section id="innovation" class="py-20 text-center">
+    <h2 class="text-3xl font-bold text-sky-900 mb-6">Innovation</h2>
+    <p class="max-w-2xl mx-auto text-gray-600">Our platform analyzes your skin type, lifestyle, and environmental data to deliver precise recommendations. Science-driven, user-focused, and constantly learning to improve your results.</p>
+  </section>
 </body>
 </html>
