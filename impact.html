@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join Us - SkinGuard</title>
+    <title>SkinGuard - Proactive Eczema Management</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
@@ -51,6 +51,34 @@
             scroll-behavior: smooth;
         }
         
+        .section-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .icon-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            background-color: rgba(37, 99, 235, 0.1);
+            color: #2563eb;
+            transition: all 0.3s ease;
+        }
+        
+        .section-card:hover .icon-container {
+            background-color: #2563eb;
+            color: white;
+            transform: scale(1.1);
+        }
+        
         /* Animation */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
@@ -62,6 +90,9 @@
         }
         
         .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
     </style>
 </head>
 <body class="font-sans bg-gray-50 text-gray-800">
@@ -72,69 +103,212 @@
                 <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/26484dd94e60489b967fd9ba0fd73bd2~tplv-a9rns2rl98-image.image?rcl=20251116094857D4E237FCEC9789F6F70F&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1765849752&x-signature=0i%2B3zNCzoJxtjhT%2FRXVTeCZke80%3D" alt="SkinGuard Logo" class="h-12 w-12 mr-3">
                 <h1 class="text-2xl font-bold text-primary">SkinGuard</h1>
             </div>
+            <nav class="flex flex-wrap justify-center gap-6">
+                <a href="/SkinGuard/index.html" class="text-gray-600 hover:text-primary transition-all-300">Home</a>
+                <a href="/SkinGuard/team.html" class="text-gray-600 hover:text-primary transition-all-300">Our team</a>
+                <a href="/SkinGuard/impact.html" class="text-gray-600 hover:text-primary transition-all-300">Impact</a>
+                <a href="/SkinGuard/innovation.html" class="text-gray-600 hover:text-primary transition-all-300">Innovation</a>
+                <a href="/SkinGuard/onboarding.html" class="text-gray-600 hover:text-primary transition-all-300">Get Started</a>
+            </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="bg-gradient text-white py-16 md:py-24">
         <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-6 text-shadow animate-fadeIn">Join Us</h1>
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 text-shadow animate-fadeIn">Impact</h1>
             <p class="text-xl md:text-2xl max-w-3xl mx-auto opacity-90 animate-fadeIn delay-100">
-                Become part of the SkinGuard community and take control of your skin health
+                Transforming eczema management from reactive treatment to proactive prevention
             </p>
         </div>
     </section>
 
-    <!-- Join Us Section -->
-    <section class="py-16 bg-white">
+    <!-- Why Section -->
+    <section id="why" class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <div class="max-w-3xl mx-auto text-center">
-                <!-- App Download Button -->
-                <div class="mb-12 animate-fadeIn">
-                    <button class="bg-primary hover:bg-blue-700 text-white font-bold py-4 px-10 rounded-lg shadow-lg transition-all-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50" onclick="alert('Thank you for your interest! The app download will start shortly.')">
-                        Get Our App
-                    </button>
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Why SkinGuard?</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="animate-fadeIn">
+                    <p class="text-lg text-gray-700 mb-6">
+                        Eczema, skin inflammation, and chronic dry skin are common skin issues nowadays, affecting millions of teenagers and adults across the United States, imposing significant physical and emotional burdens on daily life.
+                    </p>
+                    <p class="text-lg text-gray-700 mb-6">
+                        According to clinical research and public health data, approximately 10% of U.S. children and adolescents (ages 12–17) live with eczema, while the condition persists or develops in 7–10% of adults—translating to over 30 million Americans grappling with these skin challenges.
+                    </p>
+                </div>
+                <div class="flex justify-center animate-fadeIn delay-200">
+                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/0093e2a49b2141db98f56d0632b45d53~tplv-a9rns2rl98-image.image?rcl=20251116094857D4E237FCEC9789F6F70F&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1765849763&x-signature=gHK7AmgNCbmR0%2BJy%2BQA5cShASWY%3D" alt="Skin Health Icons" class="max-w-full h-auto rounded-lg shadow-soft">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section id="impact" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">The Impact</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Teens Impact -->
+                <div class="bg-white rounded-xl shadow-soft p-8 section-card animate-fadeIn">
+                    <div class="icon-container">
+                        <i class="fa fa-child text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Impact on Teenagers</h3>
+                    <p class="text-gray-600">
+                        For teenagers, these skin problems go far beyond physical discomfort; they also have emotional consequences. Eczema flare-ups often appear on visible areas like the face, arms, and legs, leading to a lack of self-confidence and social anxiety.
+                    </p>
                 </div>
                 
-                <!-- App Description -->
-                <div class="bg-gray-50 rounded-xl p-8 shadow-soft animate-fadeIn delay-100">
-                    <h2 class="text-2xl font-bold mb-6 text-gray-800">App</h2>
-                    <p class="text-lg text-gray-700 mb-6">
-                        An app designed to work with sensors. It includes:
+                <!-- Adults Impact -->
+                <div class="bg-white rounded-xl shadow-soft p-8 section-card animate-fadeIn delay-100">
+                    <div class="icon-container">
+                        <i class="fa fa-user text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Impact on Adults</h3>
+                    <p class="text-gray-600">
+                        Adults face different challenges: chronic skin irritation can impact professional relationships, as noticeable inflammation can affect confidence in the workplace. Recurring flare-ups also add to their workload outside of work.
                     </p>
-                    
-                    <ul class="text-left space-y-4">
-                        <li class="flex items-start">
-                            <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
-                            <span class="text-gray-700">Connection to your device, providing more detailed data than what's displayed on the screen</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
-                            <span class="text-gray-700">Analysis and recommendations based on your current skin condition using AI and data</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
-                            <span class="text-gray-700">Your historical skin condition</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
-                            <span class="text-gray-700">Analysis and recommendations based on your historical skin data using AI and data</span>
-                        </li>
-                    </ul>
+                </div>
+                
+                <!-- Emotional Impact -->
+                <div class="bg-white rounded-xl shadow-soft p-8 section-card animate-fadeIn delay-200">
+                    <div class="icon-container">
+                        <i class="fa fa-heart text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Emotional Toll</h3>
+                    <p class="text-gray-600">
+                        Studies show that individuals with chronic skin conditions are more likely to experience anxiety and depression, driven by the frustration of unpredictable symptoms and the stigma of "visible" health issues.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Additional Impact Content -->
+            <div class="mt-12 bg-white rounded-xl shadow-soft p-8 animate-fadeIn delay-300">
+                <h3 class="text-xl font-semibold mb-4 text-gray-800">Beyond Individual Hardship</h3>
+                <p class="text-gray-600 mb-4">
+                    These skin issues also place a hidden burden on families: parents of affected teens often juggle doctor appointments, treatment routines, and emotional support, while adults may face missed workdays or reduced productivity due to discomfort.
+                </p>
+                <p class="text-gray-600">
+                    In a nation that values health and quality of life, the widespread impact of these skin conditions underscores the urgent need for accessible, proactive solutions. For millions of Americans, managing eczema, inflammation, and dry skin isn't just a matter of skincare—it's a daily fight to reclaim comfort, confidence, and control over their lives.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="solution" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Our Solution</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1 animate-fadeIn delay-100">
+                    <h3 class="text-2xl font-semibold mb-6 text-primary">SkinGuard: Smart Prevention for Eczema</h3>
+                    <p class="text-lg text-gray-700 mb-6">
+                        SkinGuard is a smart and convenient device that connects via a mobile app, integrating datasets and artificial intelligence technology, specifically designed for eczema sufferers.
+                    </p>
+                    <p class="text-lg text-gray-700 mb-6">
+                        It shifts the focus from passive treatment to proactive prevention, helping children, teenagers, and their families manage this chronic condition. Unlike creams/medications that only work after an eczema flare-up, SkinGuard focuses on prevention.
+                    </p>
+                    <p class="text-lg text-gray-700">
+                        It combines personal medical history, environmental factors, and big data analytics to provide clear, personalized solutions, transforming prevention into a digital, healthier lifestyle habit.
+                    </p>
+                </div>
+                <div class="order-1 md:order-2 flex justify-center animate-fadeIn">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-primary rounded-full opacity-10 blur-3xl"></div>
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/26484dd94e60489b967fd9ba0fd73bd2~tplv-a9rns2rl98-image.image?rcl=20251116094857D4E237FCEC9789F6F70F&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1765849752&x-signature=0i%2B3zNCzoJxtjhT%2FRXVTeCZke80%3D" alt="SkinGuard Device" class="h-64 w-64 object-contain relative z-10">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Goals Section -->
+    <section id="goals" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Our Goals</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Goal 1 -->
+                <div class="bg-white rounded-xl shadow-soft p-8 section-card animate-fadeIn">
+                    <div class="icon-container">
+                        <i class="fa fa-shield text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Take Control of Skin Health</h3>
+                    <p class="text-gray-600">
+                        Help users better protect and maintain healthy skin in daily life, minimizing chronic dryness and inflammation.
+                    </p>
+                </div>
+                
+                <!-- Goal 2 -->
+                <div class="bg-white rounded-xl shadow-soft p-8 section-card animate-fadeIn delay-100">
+                    <div class="icon-container">
+                        <i class="fa fa-medkit text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Reduce Medical Burden</h3>
+                    <p class="text-gray-600">
+                        Cut down on unnecessary medical expenses and visit times by preventing flare-ups before they occur.
+                    </p>
+                </div>
+                
+                <!-- Goal 3 -->
+                <div class="bg-white rounded-xl shadow-soft p-8 section-card animate-fadeIn delay-200">
+                    <div class="icon-container">
+                        <i class="fa fa-smile-o text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Regain Confidence</h3>
+                    <p class="text-gray-600">
+                        Help users regain confidence in daily life by managing their condition proactively and effectively.
+                    </p>
+                </div>
+                
+                <!-- Goal 4 -->
+                <div class="bg-white rounded-xl shadow-soft p-8 section-card animate-fadeIn delay-300">
+                    <div class="icon-container">
+                        <i class="fa fa-users text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Support for Families</h3>
+                    <p class="text-gray-600">
+                        Provide safe and reliable tools for parents to help protect their children from the stress of unpredictable symptoms.
+                    </p>
+                </div>
+                
+                <!-- Goal 5 -->
+                <div class="bg-white rounded-xl shadow-soft p-8 section-card animate-fadeIn delay-400">
+                    <div class="icon-container">
+                        <i class="fa fa-sitemap text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Build an Ecosystem</h3>
+                    <p class="text-gray-600">
+                        Create partnerships with school clubs, foundations, and prototyping through workshops—building a unique and continuously evolving system.
+                    </p>
+                </div>
+                
+                <!-- Goal 6 -->
+                <div class="bg-white rounded-xl shadow-soft p-8 section-card animate-fadeIn delay-400">
+                    <div class="icon-container">
+                        <i class="fa fa-globe text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Make Solutions Accessible</h3>
+                    <p class="text-gray-600">
+                        Combine education, advocacy, and innovative technology to make sustainable eczema management solutions accessible to all who need them.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="py-16 bg-gray-50">
+    <section class="py-16 bg-gradient text-white">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-6 text-gray-800">Ready to Join the SkinGuard Community?</h2>
-            <p class="text-xl mb-8 max-w-2xl mx-auto text-gray-700">
-                Download our app today and start your journey towards healthier skin.
+            <h2 class="text-3xl font-bold mb-6">Join the SkinGuard Revolution</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">
+                Together, we can transform eczema management from a daily struggle to a proactive journey towards healthier skin.
             </p>
-            <button class="bg-primary hover:bg-blue-700 text-white font-bold py-4 px-10 rounded-lg shadow-lg transition-all-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50" onclick="alert('Thank you for your interest! The app download will start shortly.')">
-                Get Our App
+            <button class="bg-white text-primary font-semibold px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all-300 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50">
+                Learn More About SkinGuard
             </button>
         </div>
     </section>
@@ -146,6 +320,12 @@
                 <div class="flex items-center mb-6 md:mb-0">
                     <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/26484dd94e60489b967fd9ba0fd73bd2~tplv-a9rns2rl98-image.image?rcl=20251116094857D4E237FCEC9789F6F70F&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1765849752&x-signature=0i%2B3zNCzoJxtjhT%2FRXVTeCZke80%3D" alt="SkinGuard Logo" class="h-10 w-10 mr-3">
                     <h2 class="text-xl font-bold">SkinGuard</h2>
+                </div>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <a href="#why" class="text-gray-300 hover:text-white transition-all-300">Why SkinGuard</a>
+                    <a href="#impact" class="text-gray-300 hover:text-white transition-all-300">The Impact</a>
+                    <a href="#solution" class="text-gray-300 hover:text-white transition-all-300">Our Solution</a>
+                    <a href="#goals" class="text-gray-300 hover:text-white transition-all-300">Our Goals</a>
                 </div>
             </div>
             <hr class="border-gray-700 my-8">
@@ -159,19 +339,74 @@
     <script>
         // Animation on scroll
         document.addEventListener('DOMContentLoaded', function() {
-            // Animation for elements
-            const animateElements = document.querySelectorAll('.animate-fadeIn');
+            // Check if element is in viewport
+            function isInViewport(element) {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+                    rect.bottom >= 0
+                );
+            }
             
-            animateElements.forEach(element => {
+            // Animate elements when they come into view
+            function animateOnScroll() {
+                const elements = document.querySelectorAll('.section-card');
+                
+                elements.forEach(element => {
+                    if (isInViewport(element) && !element.classList.contains('animated')) {
+                        element.classList.add('animated');
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            }
+            
+            // Initialize styles for animation
+            document.querySelectorAll('.section-card').forEach(element => {
                 element.style.opacity = '0';
                 element.style.transform = 'translateY(20px)';
                 element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                
-                setTimeout(() => {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                }, element.classList.contains('delay-100') ? 100 : 0);
             });
+            
+            // Run once on load
+            animateOnScroll();
+            
+            // Run on scroll
+            window.addEventListener('scroll', animateOnScroll);
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Header shadow on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-md');
+                header.classList.remove('shadow-soft');
+            } else {
+                header.classList.remove('shadow-md');
+                header.classList.add('shadow-soft');
+            }
+        });
+        
+        // CTA button click event
+        document.querySelector('button').addEventListener('click', function() {
+            alert('Thank you for your interest in SkinGuard! We will be in touch soon with more information.');
         });
     </script>
 </body>
