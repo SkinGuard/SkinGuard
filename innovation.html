@@ -1,1 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkinGuard - Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        secondary: '#10b981',
+                        accent: '#3b82f6',
+                        light: '#f3f4f6',
+                        dark: '#1f2937'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    },
+                    boxShadow: {
+                        soft: '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
+                        hover: '0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow { text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
+            .bg-gradient { background: linear-gradient(135deg, #2563eb 0%, #10b981 100%); }
+            .transition-all-300 { transition: all 0.3s ease; }
+        }
+        body { scroll-behavior: smooth; }
+        .section-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .icon-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            background-color: rgba(37, 99, 235, 0.1);
+            color: #2563eb;
+            transition: all 0.3s ease;
+        }
+        .section-card:hover .icon-container {
+            background-color: #2563eb;
+            color: white;
+            transform: scale(1.1);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn { animation: fadeIn 0.8s ease forwards; }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 text-gray-800">
 
+    <header class="bg-white shadow-soft">
+        <div class="container mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between">
+            <div class="flex items-center mb-4 md:mb-0">
+                <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/26484dd94e60489b967fd9ba0fd73bd2~tplv-a9rns2rl98-image.image?rcl=20251116094857D4E237FCEC9789F6F70F&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1765849752&x-signature=0i%2B3zNCzoJxtjhT%2FRXVTeCZke80%3D" alt="SkinGuard Logo" class="h-12 w-12 mr-3">
+                <h1 class="text-2xl font-bold text-primary">SkinGuard</h1>
+            </div>
+            <nav class="flex flex-wrap justify-center gap-6">
+                <a href="/SkinGuard/index.html" class="text-gray-600 hover:text-primary transition-all-300">Home</a>
+                <a href="/SkinGuard/team.html" class="text-gray-600 hover:text-primary transition-all-300">Our team</a>
+                <a href="/SkinGuard/impact.html" class="text-gray-600 hover:text-primary transition-all-300">Impact</a>
+                <a href="/SkinGuard/innovation.html" class="text-gray-600 hover:text-primary transition-all-300">Innovation</a>
+                <a href="/SkinGuard/onboarding.html" class="text-gray-600 hover:text-primary transition-all-300">Get Started</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="bg-gradient text-white py-20 text-center">
+        <div class="container mx-auto px-4">
+            <h1 class="text-5xl font-bold mb-6 text-shadow animate-fadeIn">Healthy Skin Starts Here</h1>
+            <p class="text-xl max-w-2xl mx-auto opacity-90 animate-fadeIn delay-100">
+                Proactive, AI-powered eczema management for teens, adults, and families.
+            </p>
+            <div class="mt-10">
+                <a href="/solution.html" class="bg-white text-primary font-semibold px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all-300 hover:bg-gray-100">Explore SkinGuard</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">What We Offer</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="bg-white rounded-xl shadow-soft p-8 section-card animate-fadeIn">
+                    <div class="icon-container"><i class="fa fa-shield text-2xl"></i></div>
+                    <h3 class="text-xl font-semibold mb-4">Proactive Protection</h3>
+                    <p class="text-gray-600">Stay ahead of flare-ups with real-time monitoring and personalized alerts.</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-soft p-8 section-card animate-fadeIn delay-100">
+                    <div class="icon-container"><i class="fa fa-mobile text-2xl"></i></div>
+                    <h3 class="text-xl font-semibold mb-4">Smart App Integration</h3>
+                    <p class="text-gray-600">Track symptoms, environment data, and history all in one seamless app.</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-soft p-8 section-card animate-fadeIn delay-200">
+                    <div class="icon-container"><i class="fa fa-heart text-2xl"></i></div>
+                    <h3 class="text-xl font-semibold mb-4">Improved Well-being</h3>
+                    <p class="text-gray-600">Boost confidence and comfort with science-backed daily management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gray-50 text-center">
+        <h2 class="text-3xl font-bold mb-6">Join the Movement</h2>
+        <p class="text-lg max-w-xl mx-auto mb-8">
+            A future with fewer flare-ups starts with proactive action. Take the first step today.
+        </p>
+        <a href="/signup.html" class="bg-primary text-white font-semibold px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all-300">Get Started</a>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-12 text-center">
+        <p class="text-gray-400">© 2025 SkinGuard. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
