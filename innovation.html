@@ -149,20 +149,16 @@
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Product</h2>
             
-            <!-- Product Main View -->
+            <!-- Product Main Views - 调整后的创意布局 -->
             <div class="mb-16">
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
-                    <!-- image left-->
-                    <div class="md:col-span-7 product-gallery rounded-xl overflow-hidden shadow-lg">
-                        <img src="img/product_front_view.jpg" alt="Product Front View" class="w-full h-auto object-cover product-view-card relative z-20">
-                    </div>
-                    
-                    <!-- image right with information to balance both side + 信息 -->
-                    <div class="md:col-span-5 flex flex-col justify-center gap-6">
-                        <div class="product-gallery rounded-xl overflow-hidden shadow-lg h-full">
-                            <img src="img/product_top_view.jpg" alt="Product Top View" class="w-full h-auto object-cover product-view-card relative z-20">
+                    <!-- 左侧大图 + 产品描述 -->
+                    <div class="md:col-span-7 flex flex-col gap-6">
+                        <div class="product-gallery rounded-xl overflow-hidden shadow-lg">
+                            <img src="img/product_front_view.jpg" alt="Product Front View" class="w-full h-auto object-cover product-view-card relative z-20">
                         </div>
                         
+                        <!-- 产品描述移至左侧图片下方 -->
                         <div class="bg-primary/5 rounded-xl p-6 border border-primary/10">
                             <h3 class="text-xl font-semibold mb-2 text-primary">SkinGuard Device</h3>
                             <p class="text-gray-700">
@@ -172,9 +168,16 @@
                             </p>
                         </div>
                     </div>
+                    
+                    <!-- 右侧仅保留小图 -->
+                    <div class="md:col-span-5">
+                        <div class="product-gallery rounded-xl overflow-hidden shadow-lg h-full">
+                            <img src="img/product_top_view.jpg" alt="Product Top View" class="w-full h-auto object-cover product-view-card relative z-20">
+                        </div>
+                    </div>
                 </div>
                 
-                <!-- 产品视图标题（居中展示） -->
+                <!-- title in the middle -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
                     <div class="text-center">
                         <h3 class="text-xl font-semibold text-gray-800">Product Front View</h3>
@@ -188,7 +191,7 @@
             <!-- Product Components -->
             <h3 class="text-2xl font-bold text-center mb-8 text-gray-800">Core Components</h3>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div class="bg-white rounded-xl shadow-soft p-6 section-card animate-fadeIn">
                     <img src="img/motherboard.jpg" alt="Motherboard" class="w-full h-auto rounded-lg mb-6">
                     <h3 class="text-xl font-semibold mb-4 text-gray-800">Motherboard</h3>
@@ -208,6 +211,15 @@
                 <div class="bg-white rounded-xl shadow-soft p-6 section-card animate-fadeIn delay-200">
                     <img src="img/screen.jpg" alt="Display Screen" class="w-full h-auto rounded-lg mb-6">
                     <h3 class="text-xl font-semibold mb-4 text-gray-800">Display Screen</h3>
+                    <div class="border border-gray-200 p-4 rounded-lg bg-gray-50">
+                        <p class="text-gray-600 italic">此处为空白</p>
+                    </div>
+                </div>
+                
+                <!-- Seneor part -->
+                <div class="bg-white rounded-xl shadow-soft p-6 section-card animate-fadeIn delay-300">
+                    <img src="img/Sensor.jpg" alt="Humidity Sensor" class="w-full h-auto rounded-lg mb-6">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Humidity Sensor</h3>
                     <div class="border border-gray-200 p-4 rounded-lg bg-gray-50">
                         <p class="text-gray-600 italic">此处为空白</p>
                     </div>
